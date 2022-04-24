@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 8
-    y: 75
+    x: 26
+    y: 76
     width: 1903
     height: 997
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Game
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
@@ -98,7 +98,7 @@ MonoBehaviour:
     y: 0
     width: 1903
     height: 997
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 342}
   m_MaxSize: {x: 22006, y: 10021}
   vertical: 1
-  controlID: 107
+  controlID: 123
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 342}
   m_MaxSize: {x: 22006, y: 10021}
   vertical: 0
-  controlID: 108
+  controlID: 124
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 342}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 19
+  controlID: 125
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -376,8 +376,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 8
-    y: 105
+    x: 26
+    y: 106
     width: 991
     height: 539
   m_ViewDataDictionary: {fileID: 0}
@@ -465,8 +465,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 8
-    y: 105
+    x: 26
+    y: 106
     width: 991
     height: 539
   m_ViewDataDictionary: {fileID: 0}
@@ -670,8 +670,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 8
-    y: 665
+    x: 26
+    y: 666
     width: 991
     height: 366
   m_ViewDataDictionary: {fileID: 0}
@@ -695,17 +695,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1000
-    y: 105
+    x: 1018
+    y: 106
     width: 216
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: fa0e0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 6efbffff683d0000
+      m_ExpandedIDs: 6efbffff703d0000743d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -749,8 +749,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1218
-    y: 105
+    x: 1236
+    y: 106
     width: 301
     height: 926
   m_ViewDataDictionary: {fileID: 0}
@@ -786,8 +786,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1521
-    y: 105
+    x: 1539
+    y: 106
     width: 389
     height: 926
   m_ViewDataDictionary: {fileID: 0}
@@ -817,9 +817,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f63e0000
-    m_LastClickedID: 16118
-    m_ExpandedIDs: 00000000ac3e0000ae3e0000b03e0000b23e0000b43e0000b63e000000ca9a3b
+    m_SelectedIDs: fe3e0000
+    m_LastClickedID: 16126
+    m_ExpandedIDs: 00000000b83e0000ba3e0000bc3e0000be3e0000c03e0000c23e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -847,7 +847,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ac3e0000ae3e0000b03e0000b23e0000b43e0000b63e0000
+    m_ExpandedIDs: 00000000b83e0000ba3e0000bc3e0000be3e0000c03e0000c23e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -878,15 +878,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300004a3a000082540000ea5300001654000054530000a8480000a04c00009c4a00000a4a00008a4d0000284a00000000000044530000fa4c0000bc4c0000644c0000b84b0000ca4b0000da5b0000b65b0000e45b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: RotateMouse
-      m_OriginalName: RotateMouse
+      m_Name: PlayerController
+      m_OriginalName: PlayerController
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 16140
+      m_UserData: 3834
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
