@@ -9,7 +9,12 @@ public class MovementCharacterController : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
     private Vector3 moveForce;
-
+    
+    public float MoveSpeed
+    {
+        set => moveSpeed = Mathf.Max(0, value);//속도가 음수가 적용되지 않도록 Max를 사용
+        get => moveSpeed;
+    }
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();

@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 684629549}
   - component: {fileID: 684629552}
   - component: {fileID: 684629551}
+  - component: {fileID: 684629553}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -396,6 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44eb24fae8b6b0d44b65d9087da051a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyCodeRun: 304
 --- !u!114 &684629550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,6 +443,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &684629553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684629547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7b1254eed2fbf46b39f71ad7441a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 3
+  runSpeed: 5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
