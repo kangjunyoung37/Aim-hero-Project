@@ -7,10 +7,18 @@ public class PlayerController : MonoBehaviour
     [Header("Input KeyCodes")]
     [SerializeField]
     private KeyCode keyCodeRun = KeyCode.LeftShift;//달리기 키를 입력받았을때
+    [SerializeField]
+    private KeyCode keyCodeJump = KeyCode.Space;
+    [SerializeField]
+    private AudioClip runAudioClip;
+    [SerializeField]
+    private AudioClip walkAudioClip;
 
+    private AudioSource audioSource;//사운드 재생 컴포넌트
     private RotateMouse rotateMouse;
     private MovementCharacterController movementCharacterController;
     private Status status;
+    private PlayeranimatorController playerAnimatorController;
 
     
 
@@ -19,6 +27,8 @@ public class PlayerController : MonoBehaviour
         status = GetComponent<Status>();
         movementCharacterController = GetComponent<MovementCharacterController>();
         rotateMouse = GetComponent<RotateMouse>();
+        playerAnimatorController = GetComponent<PlayeranimatorController>();
+        audioSource = GetComponent<AudioSource>();
         Cursor.lockState = CursorLockMode.Locked;//마우스 위치를 고정 및 커서를 안보이게 설정
         Cursor.visible = false;
     }
@@ -26,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         UpdateRotate();
         UpdateMovement();
+        UpdateJump();
     }
     private void UpdateRotate()
     {
@@ -45,8 +56,30 @@ public class PlayerController : MonoBehaviour
 
             if (z > 0) isRun = Input.GetKey(keyCodeRun);
             movementCharacterController.MoveSpeed = isRun ? status.RunSpeed : status.WalkSpeed; //isRun이 트루면 뛰는속도로 아니면 걷는 속도로
-
+            playerAnimatorController.MoveSpeed = isRun ? 1 : 0.5f;//애니메이터 컨트롤러의 파라미터를 뛰는 상태면 1 아니면 0.5로 바꿈
+            audioSource.clip = isRun ? runAudioClip : walkAudioClip;
+            if (audioSource.isPlaying == false)
+            {
+                audioSource.loop = true;
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            movementCharacterController.MoveSpeed = 0;
+            playerAnimatorController.MoveSpeed = 0;
+            if(audioSource.isPlaying == true)
+            {
+                audioSource.Stop();
+            }
         }
         movementCharacterController.MoveTo(new Vector3(x, 0, z));
+    }
+    private void UpdateJump()
+    {
+        if (Input.GetKeyDown(keyCodeJump))
+        {
+            movementCharacterController.Jump();
+        }
     }
 }
