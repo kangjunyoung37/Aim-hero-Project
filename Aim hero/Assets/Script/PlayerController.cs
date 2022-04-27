@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private MovementCharacterController movementCharacterController;
     private Status status;
     private PlayeranimatorController playerAnimatorController;
+    private WeaponHandGun weapon;
 
     
 
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         rotateMouse = GetComponent<RotateMouse>();
         playerAnimatorController = GetComponent<PlayeranimatorController>();
         audioSource = GetComponent<AudioSource>();
+        weapon = GetComponentInChildren<WeaponHandGun>();
         Cursor.lockState = CursorLockMode.Locked;//마우스 위치를 고정 및 커서를 안보이게 설정
         Cursor.visible = false;
     }
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
         UpdateRotate();
         UpdateMovement();
         UpdateJump();
+        UpdateWeaponAction();
     }
     private void UpdateRotate()
     {
@@ -80,6 +83,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(keyCodeJump))
         {
             movementCharacterController.Jump();
+        }
+    }
+    private void UpdateWeaponAction()
+    {
+        if (Input.GetMouseButtonDown(0))//왼쪽 버튼을 눌렀을 때
+        {
+            weapon.StartWeaponAction();
+        }
+        else if (Input.GetMouseButtonUp(0))//왼쪽 버튼을 땠을 때
+        {
+            weapon.StopWeaponAction();
         }
     }
 }
