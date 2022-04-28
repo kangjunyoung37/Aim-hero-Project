@@ -14,6 +14,11 @@ public class WeaponHandGun : MonoBehaviour
     [SerializeField]
     private WeaponSetting weaponSetting;
 
+    [SerializeField]
+    private GameObject muzzleFalsh;
+    [SerializeField]
+    private AudioClip FireSound;
+
     private float lastAttackTime = 0;
 
     private void Awake()
@@ -22,6 +27,7 @@ public class WeaponHandGun : MonoBehaviour
         animator = GetComponentInParent<PlayeranimatorController>();
 
     }
+ 
     public void StartWeaponAction(int type = 0)
     {
         //마우스 왼쪽 클릭
@@ -64,17 +70,25 @@ public class WeaponHandGun : MonoBehaviour
 
             lastAttackTime = Time.time;//공격주기가 되어야 공격할 수 있도록 현재 시간 저장
             animator.Play("Fire", -1, 0);//같은 애니메이션을 반복할 때 애니메이션을 끊고 처음부터 재생
+            PlaySound(FireSound);
+            StartCoroutine("OnMuzzel");
         }
     }
-
+    private IEnumerator OnMuzzel()
+    {
+        muzzleFalsh.SetActive(true);
+        yield return new WaitForSeconds(weaponSetting.attackRate*0.3f);
+        muzzleFalsh.SetActive(false);
+    }
     private void OnEnable()
     {
+        muzzleFalsh.SetActive(false);//총구 화염을 안보이게
         PlaySound(audioTakeOutWeapon);
     }
     private void PlaySound(AudioClip clip)
     {
         audioSource.Stop();
-        audioSource.clip = audioTakeOutWeapon;
+        audioSource.clip = clip;
         audioSource.Play();
     }
  

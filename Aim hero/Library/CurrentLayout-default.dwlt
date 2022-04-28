@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Game
   m_RootView: {fileID: 4}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 0
 --- !u!114 &2
@@ -52,7 +52,7 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 17}
   m_Selected: 2
-  m_LastSelected: 3
+  m_LastSelected: 1
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 342}
   m_MaxSize: {x: 22006, y: 10021}
   vertical: 1
-  controlID: 122
+  controlID: 128
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 342}
   m_MaxSize: {x: 22006, y: 10021}
   vertical: 0
-  controlID: 123
+  controlID: 129
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 342}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 39
+  controlID: 65
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -481,9 +481,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.11352362, y: -2.6689715, z: 16.753819}
+    m_Target: {x: 13.136596, y: -2.5800562, z: 13.704369}
     speed: 2
-    m_Value: {x: -0.11352362, y: -2.6689715, z: 16.753819}
+    m_Value: {x: 13.136596, y: -2.5800562, z: 13.704369}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -530,9 +530,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.12745896, y: -0.00841228, z: 0.0010731925, w: -0.9918144}
+    m_Target: {x: -0.08393923, y: -0.36430544, z: 0.032989133, w: -0.9269174}
     speed: 2
-    m_Value: {x: -0.12745811, y: -0.008412224, z: 0.0010731852, w: -0.99180776}
+    m_Value: {x: -0.08393804, y: -0.36430028, z: 0.032988664, w: -0.9269042}
   m_Size:
     m_Target: 10
     speed: 2
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 15720
+  m_LastSelectedObjectID: 15778
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -737,9 +737,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a03d0000
-      m_LastClickedID: 15776
-      m_ExpandedIDs: 6efbffff7c3d0000803d0000a03d0000
+      m_SelectedIDs: a23d0000
+      m_LastClickedID: 15778
+      m_ExpandedIDs: e6faffff66fbffff6afbffff7e3d0000823d0000a23d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -838,22 +838,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Animator
+    - Assets/ExternalAssets/Low Poly FPS Pack - Free (Sample)/Components/Audio/Shoot
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Animator
+  - Assets/ExternalAssets/Low Poly FPS Pack - Free (Sample)/Components/Audio/Shoot
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\kangjunyoung\Documents\GitHub\Aim-hero\Aim hero
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a23f0000
-    m_LastClickedID: 16290
-    m_ExpandedIDs: 00000000863f0000883f00008a3f00008c3f00008e3f0000903f0000923f000000ca9a3b
+    m_SelectedIDs: c03f0000
+    m_LastClickedID: 16320
+    m_ExpandedIDs: 000000008e3f0000903f0000923f0000943f0000963f0000983f00009a3f0000e03f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -881,7 +881,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000863f0000883f00008a3f00008c3f00008e3f0000903f0000923f0000
+    m_ExpandedIDs: 000000008e3f0000903f0000923f0000943f0000963f0000983f00009a3f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -912,18 +912,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300004a3a000082540000ea5300001654000054530000a8480000a04c00009c4a00000a4a00008a4d0000284a00000000000044530000fa4c0000bc4c0000644c0000b84b0000ca4b0000da5b0000b65b0000e45b0000c23d00008c410000ce3d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: WeaponSetting
-      m_OriginalName: WeaponSetting
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 17594
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_CreateAssetUtility:
