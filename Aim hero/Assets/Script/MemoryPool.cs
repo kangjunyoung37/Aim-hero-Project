@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MemoryPool : MonoBehaviour
+public class MemoryPool
 {   
     private class Pooltem
     {
@@ -24,7 +24,6 @@ public class MemoryPool : MonoBehaviour
         maxCount = 0;
         activeCount = 0;
         this.poolObject = poolObject;
-
         poolItemList = new List<Pooltem>();
         InstantivateObject();
     }
@@ -34,10 +33,11 @@ public class MemoryPool : MonoBehaviour
         for (int i = 0; i < increaseCount; i++)
         {
 
-       
         Pooltem pooltem = new Pooltem();
+
         pooltem.isActive = false;
         pooltem.gameObject = GameObject.Instantiate(poolObject);
+        pooltem.gameObject.SetActive(false);
 
         poolItemList.Add(pooltem);
         }
@@ -62,6 +62,7 @@ public class MemoryPool : MonoBehaviour
             Pooltem pooltem = poolItemList[i];
             if (pooltem.isActive == false)
             {
+                activeCount++;
                 pooltem.isActive = true;
                 pooltem.gameObject.SetActive(true);
 

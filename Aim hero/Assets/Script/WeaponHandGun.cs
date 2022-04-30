@@ -8,16 +8,23 @@ public class WeaponHandGun : MonoBehaviour
     [SerializeField]
     private AudioClip audioTakeOutWeapon;
 
-    private AudioSource audioSource;
-    private PlayeranimatorController animator;
-
     [SerializeField]
     private WeaponSetting weaponSetting;
 
     [SerializeField]
     private GameObject muzzleFalsh;
+    
     [SerializeField]
     private AudioClip FireSound;
+
+    [Header("Spawn Point")]
+    [SerializeField]
+    private Transform casingSpawnPoint;
+   
+    private AudioSource audioSource;
+    private PlayeranimatorController animator;
+    private CasingMemoryPool casingMemorypool;
+
 
     private float lastAttackTime = 0;
 
@@ -25,6 +32,7 @@ public class WeaponHandGun : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>(); 
         animator = GetComponentInParent<PlayeranimatorController>();
+        casingMemorypool = GetComponent<CasingMemoryPool>();
 
     }
  
@@ -72,6 +80,7 @@ public class WeaponHandGun : MonoBehaviour
             animator.Play("Fire", -1, 0);//같은 애니메이션을 반복할 때 애니메이션을 끊고 처음부터 재생
             PlaySound(FireSound);
             StartCoroutine("OnMuzzel");
+            casingMemorypool.SpawnCasing(casingSpawnPoint.position, transform.right);
         }
     }
     private IEnumerator OnMuzzel()
