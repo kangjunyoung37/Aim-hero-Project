@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
+public class AmmoEvent : UnityEngine.Events.UnityEvent<int, int> { }
 public class WeaponHandGun : MonoBehaviour
 {
+    [HideInInspector]
+    public AmmoEvent onAmmoEvent = new AmmoEvent();
+
     [Header("Audio Clips")]
     [SerializeField]
     private AudioClip audioTakeOutWeapon;
 
     [SerializeField]
     private WeaponSetting weaponSetting;
+    public WeaponName WeaponName => weaponSetting.weaponname;
 
     [SerializeField]
     private GameObject muzzleFalsh;
@@ -33,9 +38,16 @@ public class WeaponHandGun : MonoBehaviour
         audioSource = GetComponent<AudioSource>(); 
         animator = GetComponentInParent<PlayeranimatorController>();
         casingMemorypool = GetComponent<CasingMemoryPool>();
+        weaponSetting.currentAmmo = weaponSetting.maxAmmo;
 
     }
- 
+
+    private void OnEnable()
+    {
+        muzzleFalsh.SetActive(false);//총구 화염을 안보이게
+        PlaySound(audioTakeOutWeapon);
+        onAmmoEvent.Invoke(weaponSetting.currentAmmo, weaponSetting.maxAmmo); //무기의 탄수를 갱신
+    }
     public void StartWeaponAction(int type = 0)
     {
         //마우스 왼쪽 클릭
@@ -77,6 +89,12 @@ public class WeaponHandGun : MonoBehaviour
             }
 
             lastAttackTime = Time.time;//공격주기가 되어야 공격할 수 있도록 현재 시간 저장
+            if (weaponSetting.currentAmmo <= 0)
+            {
+                return;
+            }
+            weaponSetting.currentAmmo--;
+            onAmmoEvent.Invoke(weaponSetting.currentAmmo,weaponSetting.maxAmmo);
             animator.Play("Fire", -1, 0);//같은 애니메이션을 반복할 때 애니메이션을 끊고 처음부터 재생
             PlaySound(FireSound);
             StartCoroutine("OnMuzzel");
@@ -89,11 +107,7 @@ public class WeaponHandGun : MonoBehaviour
         yield return new WaitForSeconds(weaponSetting.attackRate*0.3f);
         muzzleFalsh.SetActive(false);
     }
-    private void OnEnable()
-    {
-        muzzleFalsh.SetActive(false);//총구 화염을 안보이게
-        PlaySound(audioTakeOutWeapon);
-    }
+
     private void PlaySound(AudioClip clip)
     {
         audioSource.Stop();
