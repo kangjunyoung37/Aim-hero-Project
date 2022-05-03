@@ -510,6 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCodeRun: 304
   keyCodeJump: 32
+  keyReload: 114
   runAudioClip: {fileID: 8300000, guid: 0c58744c3b6fdd844b8348066c3f703e, type: 3}
   walkAudioClip: {fileID: 8300000, guid: 6597a368cd74a924eaedb0171d5b28d3, type: 3}
 --- !u!114 &684629550
@@ -896,6 +897,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioTakeOutWeapon: {fileID: 8300000, guid: 2ae41e984ff1f3e4a840a1a46b6a8816, type: 3}
+  audioClipReload: {fileID: 8300000, guid: fee3a21f251a4914cabce25b13e7d2a8, type: 3}
   weaponSetting:
     weaponname: 0
     currentAmmo: 0

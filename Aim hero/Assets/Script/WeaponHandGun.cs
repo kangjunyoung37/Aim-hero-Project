@@ -11,6 +11,8 @@ public class WeaponHandGun : MonoBehaviour
     [Header("Audio Clips")]
     [SerializeField]
     private AudioClip audioTakeOutWeapon;
+    [SerializeField]
+    private AudioClip audioClipReload;
 
     [SerializeField]
     private WeaponSetting weaponSetting;
@@ -32,6 +34,8 @@ public class WeaponHandGun : MonoBehaviour
 
 
     private float lastAttackTime = 0;
+    private bool isReload = false;
+
 
     private void Awake()
     {
@@ -50,6 +54,7 @@ public class WeaponHandGun : MonoBehaviour
     }
     public void StartWeaponAction(int type = 0)
     {
+        if (isReload) return;
         //마우스 왼쪽 클릭
         if (type == 0)
         {
@@ -62,6 +67,12 @@ public class WeaponHandGun : MonoBehaviour
                 OnAttack();
             }
         }
+    }
+    public void StartReload()
+    {
+        if(isReload) return;
+        StopWeaponAction();
+        StartCoroutine("OnReload");
     }
     public void StopWeaponAction(int type = 0)
     {
@@ -100,6 +111,25 @@ public class WeaponHandGun : MonoBehaviour
             StartCoroutine("OnMuzzel");
             casingMemorypool.SpawnCasing(casingSpawnPoint.position, transform.right);
         }
+    }
+    private IEnumerator OnReload()
+    {
+        isReload = true;
+
+        animator.OnReload();
+        PlaySound(audioClipReload);
+        while (true)
+        {
+            if(audioSource.isPlaying == false && animator.CurrentAnimationIs("Movement"))
+            {
+                isReload =false;
+
+                weaponSetting.currentAmmo = weaponSetting.maxAmmo;
+                onAmmoEvent.Invoke(weaponSetting.currentAmmo, weaponSetting.maxAmmo);
+                yield break;
+            }       
+        }
+        yield return null;
     }
     private IEnumerator OnMuzzel()
     {
