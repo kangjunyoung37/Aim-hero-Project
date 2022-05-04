@@ -127,9 +127,11 @@ public class WeaponHandGun : MonoBehaviour
                 weaponSetting.currentAmmo = weaponSetting.maxAmmo;
                 onAmmoEvent.Invoke(weaponSetting.currentAmmo, weaponSetting.maxAmmo);
                 yield break;
-            }       
+            }
+
+            yield return null;
         }
-        yield return null;
+        
     }
     private IEnumerator OnMuzzel()
     {
