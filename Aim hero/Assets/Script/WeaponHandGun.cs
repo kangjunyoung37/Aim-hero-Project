@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 public class AmmoEvent : UnityEngine.Events.UnityEvent<int, int> { }
+
 public class WeaponHandGun : MonoBehaviour
 {
     [HideInInspector]
     public AmmoEvent onAmmoEvent = new AmmoEvent();
+    
 
     [Header("Audio Clips")]
     [SerializeField]
@@ -42,7 +44,8 @@ public class WeaponHandGun : MonoBehaviour
         audioSource = GetComponent<AudioSource>(); 
         animator = GetComponentInParent<PlayeranimatorController>();
         casingMemorypool = GetComponent<CasingMemoryPool>();
-        weaponSetting.currentAmmo = weaponSetting.maxAmmo;
+        weaponSetting.currentAmmo = weaponSetting.HandGunMagazine;
+        
 
     }
 
@@ -70,6 +73,7 @@ public class WeaponHandGun : MonoBehaviour
     }
     public void StartReload()
     {
+        if(weaponSetting.HandGunMagazine == weaponSetting.currentAmmo ||weaponSetting.maxAmmo <=0) return;
         if(isReload) return;
         StopWeaponAction();
         StartCoroutine("OnReload");
@@ -114,21 +118,32 @@ public class WeaponHandGun : MonoBehaviour
     }
     private IEnumerator OnReload()
     {
+        int fillammo = weaponSetting.HandGunMagazine - weaponSetting.currentAmmo;
         isReload = true;
-
         animator.OnReload();
         PlaySound(audioClipReload);
-        while (true)
+        yield return new WaitForSeconds(1.2f);
+        if (fillammo > weaponSetting.maxAmmo)
         {
-            if(audioSource.isPlaying == false && animator.CurrentAnimationIs("Movement"))
+            weaponSetting.currentAmmo +=weaponSetting.maxAmmo;
+            weaponSetting.maxAmmo = 0;
+        }
+        else
+        { 
+            weaponSetting.currentAmmo = weaponSetting.HandGunMagazine;
+            weaponSetting.maxAmmo = weaponSetting.maxAmmo - fillammo;
+        }
+
+        onAmmoEvent.Invoke(weaponSetting.currentAmmo, weaponSetting.maxAmmo);
+
+        while (true)
+        {     
+            if (audioSource.isPlaying == false && animator.CurrentAnimationIs("Movement"))
             {
                 isReload =false;
-
-                weaponSetting.currentAmmo = weaponSetting.maxAmmo;
-                onAmmoEvent.Invoke(weaponSetting.currentAmmo, weaponSetting.maxAmmo);
+                
                 yield break;
             }
-
             yield return null;
         }
         

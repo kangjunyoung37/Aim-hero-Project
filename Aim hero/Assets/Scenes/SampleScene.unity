@@ -900,9 +900,10 @@ MonoBehaviour:
   audioClipReload: {fileID: 8300000, guid: fee3a21f251a4914cabce25b13e7d2a8, type: 3}
   weaponSetting:
     weaponname: 0
-    currentAmmo: 0
-    maxAmmo: 7
-    attackRate: 0.2
+    HandGunMagazine: 12
+    currentAmmo: 12
+    maxAmmo: 24
+    attackRate: 0.1
     attackDistance: 30
     isAutomaticAttack: 0
   muzzleFalsh: {fileID: 2026569886}
@@ -1928,7 +1929,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <size=40>7/</size>7
+  m_text: '<size=40>12/</size>24
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

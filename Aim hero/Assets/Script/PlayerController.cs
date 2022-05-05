@@ -47,8 +47,6 @@ public class PlayerController : MonoBehaviour
     {
         float MouseX = Input.GetAxis("Mouse X");
         float MouseY = Input.GetAxis("Mouse Y");
-        Debug.Log(MouseX);
-        Debug.Log(MouseY);
         rotateMouse.UpdateRotate(MouseX, MouseY);
     }
     private void UpdateMovement()

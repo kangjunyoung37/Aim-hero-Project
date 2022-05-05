@@ -16,16 +16,19 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField]
     private Image imageWeaponIcon;
     [SerializeField]
-    private Sprite[] spriteWeaponIcon;
-
+    private Sprite[] spriteWeaponIcon;    
     [Header("Ammo")]
     [SerializeField]
     private TextMeshProUGUI textAmmo;
+    
 
     private void Awake()
     {
+        
         SetupWeapon();
         weapon.onAmmoEvent.AddListener(UpdateAmmoHUB);
+        
+        
     }
     private void SetupWeapon()
     {

@@ -3,6 +3,7 @@ public enum WeaponName { HandGun = 0 }
 public struct WeaponSetting
 {
     public WeaponName weaponname;
+    public int HandGunMagazine;
     public int currentAmmo;
     public int maxAmmo;
     public float attackRate;
