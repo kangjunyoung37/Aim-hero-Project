@@ -80,6 +80,7 @@
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Weapon_Scripts\HandgunScriptLPFP.cs" />
     <Compile Include="Assets\Script\MemoryPool.cs" />
     <Compile Include="Assets\Script\Impact.cs" />
+    <Compile Include="Assets\Script\ImpactMemoryPool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

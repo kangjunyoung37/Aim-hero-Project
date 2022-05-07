@@ -29,10 +29,15 @@ public class WeaponHandGun : MonoBehaviour
     [Header("Spawn Point")]
     [SerializeField]
     private Transform casingSpawnPoint;
+    [SerializeField]
+    private Transform bulletSpawnPoint;
    
     private AudioSource audioSource;
     private PlayeranimatorController animator;
     private CasingMemoryPool casingMemorypool;
+    private ImpactMemoryPool impactMemoryPool;
+    private Camera mainCamera;
+
 
 
     private float lastAttackTime = 0;
@@ -45,6 +50,8 @@ public class WeaponHandGun : MonoBehaviour
         animator = GetComponentInParent<PlayeranimatorController>();
         casingMemorypool = GetComponent<CasingMemoryPool>();
         weaponSetting.currentAmmo = weaponSetting.HandGunMagazine;
+        impactMemoryPool = GetComponent<ImpactMemoryPool>();
+        mainCamera = Camera.main;
         
 
     }
@@ -114,6 +121,7 @@ public class WeaponHandGun : MonoBehaviour
             PlaySound(FireSound);
             StartCoroutine("OnMuzzel");
             casingMemorypool.SpawnCasing(casingSpawnPoint.position, transform.right);
+            TwoStepRaycast();
         }
     }
     private IEnumerator OnReload()
@@ -148,6 +156,28 @@ public class WeaponHandGun : MonoBehaviour
         }
         
     }
+    private void TwoStepRaycast()
+    {
+        Ray ray;
+        RaycastHit hit;
+        Vector3 targetPoint = Vector3.zero;
+
+        ray = mainCamera.ViewportPointToRay(Vector2.one * 0.5f);
+        if(Physics.Raycast(ray,out hit, weaponSetting.attackDistance))
+        {
+            targetPoint = hit.point;
+        }
+        else
+        {
+            targetPoint = ray.origin+ray.direction*weaponSetting.attackDistance;
+        }
+
+        Vector3 attackDirection = (targetPoint - bulletSpawnPoint.position).normalized;
+        if(Physics.Raycast(bulletSpawnPoint.position,attackDirection,out hit, weaponSetting.attackDistance))
+        {
+            impactMemoryPool.SpawnImpact(hit);
+        }
+    }
     private IEnumerator OnMuzzel()
     {
         muzzleFalsh.SetActive(true);
@@ -161,6 +191,8 @@ public class WeaponHandGun : MonoBehaviour
         audioSource.clip = clip;
         audioSource.Play();
     }
+
+
  
 
 }
