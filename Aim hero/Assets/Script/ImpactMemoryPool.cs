@@ -26,7 +26,7 @@ public class ImpactMemoryPool : MonoBehaviour
             OnSpawnImpact(ImpactType.Noraml, hit.point, Quaternion.LookRotation(hit.normal));
             
         }
-        else if (hit.transform.CompareTag("ImpactObastacle"))
+        else if (hit.transform.CompareTag("ImpactObstacle"))
         {
             OnSpawnImpact(ImpactType.Obstacle, hit.point,Quaternion.LookRotation(hit.normal));
 
