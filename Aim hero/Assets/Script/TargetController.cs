@@ -4,23 +4,41 @@ using UnityEngine;
 
 public class TargetController : MonoBehaviour
 {
-    private int x = 1;
-    private int z = 1;
+
     private TargetMovement targetMovement;
+
+    
+    private Vector3 movespeed;
+    
+    private int a;
+    private float MoveTime = 3.0f;
+   
     private void Awake()
     {
         targetMovement = GetComponent<TargetMovement>();
+       
     }
-    IEnumerator Direction()
+
+    private IEnumerator Right()
     {
-        yield return new WaitForSeconds(1.5f);
-        x = Random.Range(-1, 1);
-        z = Random.Range(-1, 1);
+
+        yield return new WaitForSeconds(1f);
+        MoveTime += 3.0f;
+        
+
+
     }
     private void Update()
     {
-        StartCoroutine(Direction());
-        targetMovement.MoveTo(new Vector3(x, 0, z));
+        movespeed = new Vector3(2, 0, 0);
+        if (Time.time < MoveTime)
+        {
+              
+            transform.position += movespeed * Time.deltaTime;
+
+        }
+        
+        
     }
 
 }
