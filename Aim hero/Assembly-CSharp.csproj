@@ -59,6 +59,7 @@
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Demo_Scene_Components\Scripts\DebrisScript.cs" />
     <Compile Include="Assets\Script\MovementCharacterController.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Casings_&amp;_Projectiles\GrenadeScript.cs" />
+    <Compile Include="Assets\Script\TargetMovement.cs" />
     <Compile Include="Assets\Script\WeaponSetting.cs" />
     <Compile Include="Assets\Script\Status.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Demo_Scene_Components\Scripts\ExplosiveBarrelScript.cs" />
@@ -80,9 +81,8 @@
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Weapon_Scripts\HandgunScriptLPFP.cs" />
     <Compile Include="Assets\Script\MemoryPool.cs" />
     <Compile Include="Assets\Script\ImpactMemoryPool.cs" />
-    <Compile Include="Assets\Script\Impact.cs" />
-    <Compile Include="Assets\Script\TargetMovement.cs" />
     <Compile Include="Assets\Script\TargetController.cs" />
+    <Compile Include="Assets\Script\Impact.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
