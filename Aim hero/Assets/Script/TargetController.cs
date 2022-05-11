@@ -55,8 +55,11 @@ public class TargetController : MonoBehaviour
     }
     private void Update()
     {
-        transform.rotation = Quaternion.Euler(0, 0, 90);
-        transform.LookAt(target.position);
+        Vector3 direction = target.position - transform.position;
+        direction.Normalize();
+        Debug.Log(direction);
+        transform.rotation = Quaternion.Euler(0, transform.rotation.y +direction.x, 90);
+       
         if (Time.time - LastTime <= MoveTime)
         {
             transform.position += movespeed * Time.deltaTime;
