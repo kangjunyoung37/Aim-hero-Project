@@ -5,22 +5,18 @@ using UnityEngine;
 public class TargetController : MonoBehaviour
 {
 
-    private TargetMovement targetMovement;
-
     [SerializeField]
-    private Transform target;
+    private Transform player;
     
-    private Vector3 movespeed = new Vector3(7, 0, 0);
+    private Vector3 distance = new Vector3(-5, 0, 0);
 
-    private float MoveTime = 2.0f;
+    [Range(0,100)]
+    [SerializeField]
+    private float speed = 1.0f;
+
+    private float MoveTime = 1.0f;
     private float LastTime = 0;
    
-    private void Awake()
-    {
-        targetMovement = GetComponent<TargetMovement>();
-       
-    }
-
     private Vector3 patern(int num)
     {
         switch (num)
@@ -48,27 +44,38 @@ public class TargetController : MonoBehaviour
     private IEnumerator Wait()
     {
 
-        movespeed = new Vector3(0, 0, 0);
+        distance = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(0.5f);
         LastTime = Time.time;
   
     }
     private void Update()
     {
-        Vector3 direction = target.position - transform.position;
-        direction.Normalize();
-        Debug.Log(direction);
-        transform.rotation = Quaternion.Euler(0, transform.rotation.y +direction.x, 90);
-       
+      
+        transform.LookAt(new Vector3(player.position.x, 1.5f, player.position.z));
+        
         if (Time.time - LastTime <= MoveTime)
         {
-            transform.position += movespeed * Time.deltaTime;
+            if (-25 < (transform.position.x + distance.x)
+               &&  25 > (transform.position.x + distance.x) 
+               && (transform.position.z + distance.z) < 25
+               && (transform.position.z + distance.z) > -25)
+            {
+
+                transform.position += (distance * speed) * Time.deltaTime;
+            }
+            else
+            {
+                                int randomnum = Random.Range(0, 4);
+                distance = patern(randomnum);
+            }
+            
         }
         else
         {
             StartCoroutine(Wait());
             int randomnum = Random.Range(0, 4);
-            movespeed = patern(randomnum);
+            distance = patern(randomnum);
         }
         
 
