@@ -28,5 +28,10 @@ public class PlayeranimatorController : MonoBehaviour
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName(name);
     }
+    public bool AimModeIS
+    {
+        set => animator.SetBool("isAimMode", value);
+        get => animator.GetBool("isAimMode");
+    }
 
 }

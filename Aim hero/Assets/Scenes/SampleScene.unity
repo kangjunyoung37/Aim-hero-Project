@@ -1146,6 +1146,7 @@ MonoBehaviour:
   FireSound: {fileID: 8300000, guid: 38b450e2adcb6f542acc8c1d423bd8dc, type: 3}
   casingSpawnPoint: {fileID: 1593586304}
   bulletSpawnPoint: {fileID: 557728168}
+  imageAim: {fileID: 228899359}
 --- !u!82 &1250989022
 AudioSource:
   m_ObjectHideFlags: 0

@@ -95,6 +95,14 @@ public class PlayerController : MonoBehaviour
         {
             weapon.StopWeaponAction();
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            weapon.StartWeaponAction(1);
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            weapon.StopWeaponAction(1);
+        }
         if (Input.GetKeyDown(keyReload))
         {
             weapon.StartReload();
