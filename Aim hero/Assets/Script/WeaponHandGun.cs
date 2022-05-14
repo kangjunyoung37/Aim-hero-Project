@@ -48,7 +48,7 @@ public class WeaponHandGun : MonoBehaviour
     private bool isAttack = false;
     private bool isModeChage = false;
     private float defaultModeFOV = 104;
-    private float aimModeFOV = 30;
+    private float aimModeFOV = 90;
 
 
     private void Awake()
@@ -97,6 +97,10 @@ public class WeaponHandGun : MonoBehaviour
     {
         if(weaponSetting.HandGunMagazine == weaponSetting.currentAmmo ||weaponSetting.maxAmmo <=0) return;
         if(isReload) return;
+        if (animator.AimModeIS)
+        {
+            StartCoroutine("OnModeChange");
+        }
         StopWeaponAction();
         StartCoroutine("OnReload");
     }
@@ -121,9 +125,9 @@ public class WeaponHandGun : MonoBehaviour
     {
         float current = 0;
         float percent = 0;
-        float time = 0.35f;
+        float time = 0.2f;
         animator.AimModeIS = !animator.AimModeIS;
-        imageAim.enabled = !imageAim.enabled;
+        //imageAim.enabled = !imageAim.enabled;
 
         float start = mainCamera.fieldOfView;
         float end = animator.AimModeIS == true ? aimModeFOV : defaultModeFOV;

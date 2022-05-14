@@ -810,6 +810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 3
   runSpeed: 5
+  score: 0
 --- !u!114 &684629554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1922,15 +1923,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 56ec0b9a5b8762642811ea26a5242e04, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 56ec0b9a5b8762642811ea26a5242e04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.05
+      value: -0.085
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 56ec0b9a5b8762642811ea26a5242e04, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 56ec0b9a5b8762642811ea26a5242e04, type: 3}
       propertyPath: m_LocalRotation.w
