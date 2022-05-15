@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip walkAudioClip;
 
+    public RaycastHit hit;
+
+
     private AudioSource audioSource;//사운드 재생 컴포넌트
     private RotateMouse rotateMouse;
     private MovementCharacterController movementCharacterController;
@@ -108,5 +111,13 @@ public class PlayerController : MonoBehaviour
             weapon.StartReload();
         }
     }
-   
+    public void scoreGet(RaycastHit hit)
+    {
+
+        if (hit.transform.CompareTag("ImpactObstacle"))
+        {
+            status.Score += 10;
+        }
+    }
+
 }

@@ -32,7 +32,8 @@ public class WeaponHandGun : MonoBehaviour
     private Transform casingSpawnPoint;
     [SerializeField]
     private Transform bulletSpawnPoint;
-   
+
+    private PlayerController playerController;
     private AudioSource audioSource;
     private PlayeranimatorController animator;
     private CasingMemoryPool casingMemorypool;
@@ -59,7 +60,9 @@ public class WeaponHandGun : MonoBehaviour
         weaponSetting.currentAmmo = weaponSetting.HandGunMagazine;
         impactMemoryPool = GetComponent<ImpactMemoryPool>();
         mainCamera = Camera.main;
-        
+        playerController = GetComponentInParent<PlayerController>();
+
+
 
     }
 
@@ -222,6 +225,7 @@ public class WeaponHandGun : MonoBehaviour
         if(Physics.Raycast(bulletSpawnPoint.position,attackDirection,out hit, weaponSetting.attackDistance))
         {
             impactMemoryPool.SpawnImpact(hit);
+            playerController.scoreGet(hit);
         }
     }
     private IEnumerator OnMuzzel()
