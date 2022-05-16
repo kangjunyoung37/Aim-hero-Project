@@ -83,6 +83,8 @@
     <Compile Include="Assets\Script\ImpactMemoryPool.cs" />
     <Compile Include="Assets\Script\TargetController.cs" />
     <Compile Include="Assets\Script\Impact.cs" />
+    <Compile Include="Assets\Script\EnemySpawnPoint.cs" />
+    <Compile Include="Assets\Script\EnemyMemoryPool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
