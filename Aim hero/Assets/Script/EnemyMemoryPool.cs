@@ -12,7 +12,7 @@ public class EnemyMemoryPool : MonoBehaviour
     private float enemySpawnTime = 1;
     [SerializeField]
     private float enemySpawnLatency = 1;
-
+    
     private MemoryPool spawnPointMemoryPool;
     private MemoryPool enemyMemoryPool;
 
@@ -25,10 +25,14 @@ public class EnemyMemoryPool : MonoBehaviour
 
         StartCoroutine("SpawnTile");
     }
+    private void Update()
+    {
+        
+    }
     private IEnumerator SpawnTile()
     {
         int currentNumber = 0;
-        int maxiumNumber = 50;
+        int maxiumNumber = 5;
 
         while (true)
         {
@@ -39,7 +43,7 @@ public class EnemyMemoryPool : MonoBehaviour
 
             if(currentNumber >= maxiumNumber)
             {
-                currentNumber = 0;
+                yield break;
 
             }
             yield return new WaitForSeconds(enemySpawnTime);
@@ -54,6 +58,11 @@ public class EnemyMemoryPool : MonoBehaviour
         item.transform.position = point.transform.position;
 
         spawnPointMemoryPool.DeactivatePoolItem(point);
+
+        yield return new WaitForSeconds(enemySpawnLatency);
+        enemyMemoryPool.DeactivatePoolItem(item);
+        
+
     }
 
 }

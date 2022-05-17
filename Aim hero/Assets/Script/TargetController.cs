@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TargetController : MonoBehaviour
 {
 
@@ -66,7 +67,7 @@ public class TargetController : MonoBehaviour
             }
             else
             {
-                                int randomnum = Random.Range(0, 4);
+                int randomnum = Random.Range(0, 4);
                 distance = patern(randomnum);
             }
             
